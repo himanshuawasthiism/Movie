@@ -34,11 +34,11 @@
 		742C64351E9C90F100B8E327 /* Actor.m in Sources */ = {isa = PBXBuildFile; fileRef = 742C64341E9C90F100B8E327 /* Actor.m */; };
 		742C64381E9C913200B8E327 /* GenericRole.m in Sources */ = {isa = PBXBuildFile; fileRef = 742C64371E9C913200B8E327 /* GenericRole.m */; };
 		742C643B1E9C917B00B8E327 /* Director.m in Sources */ = {isa = PBXBuildFile; fileRef = 742C643A1E9C917B00B8E327 /* Director.m */; };
-		742C643F1E9CCDB600B8E327 /* TappableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 742C643E1E9CCDB600B8E327 /* TappableLabel.m */; };
 		7A403433F38F79D1DF872EE8 /* libPods-MovieWebServiceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8C710AB6990FCB5C6151B4 /* libPods-MovieWebServiceTests.a */; };
 		90DA19CFA1BC8F9001F66546 /* DetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6A3D5C79D0DBE63886184F /* DetailsRouter.swift */; };
 		9DD4F619A27419084F677EB0 /* DetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026F64ADDEE1970845506D2F /* DetailsInteractorTests.swift */; };
 		9E91D35C4F9A99DA2DA1B5BD /* DetailsModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E8494DB90097392C92E80 /* DetailsModuleInput.swift */; };
+		A33301352122C006005DDD40 /* TappableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 742C643E1E9CCDB600B8E327 /* TappableLabel.m */; };
 		B1ECDB0D319AC25FF7CDE7A3 /* MoviesListPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F90893C5DA4E92ACCFF053 /* MoviesListPresenterTests.m */; };
 		B76434C8ACE66C22C17123F0 /* libPods-MovieWebService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEF29814B4D3A6E5D9F73BF /* libPods-MovieWebService.a */; };
 		BC4A6E017108906463B7D6EF /* MoviesListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = F04B81BB8E069391AC58935D /* MoviesListInteractor.m */; };
@@ -840,7 +840,7 @@
 				638D8069B664F59F50DFA783 /* MoviesListPresenter.m in Sources */,
 				BC4A6E017108906463B7D6EF /* MoviesListInteractor.m in Sources */,
 				F431DAFBD7C87A621115DB69 /* MoviesListRouter.m in Sources */,
-				742C643F1E9CCDB600B8E327 /* TappableLabel.m in Sources */,
+				A33301352122C006005DDD40 /* TappableLabel.m in Sources */,
 				742C64261E9C7A3900B8E327 /* MoviesListBuilder.m in Sources */,
 				3E428908FB520AB4DF020ACC /* DetailsViewInput.swift in Sources */,
 				C7DB85D5B1453F3151459F19 /* DetailsViewOutput.swift in Sources */,
@@ -1009,11 +1009,12 @@
 			baseConfigurationReference = 78533EB522E1CAA78E1268C9 /* Pods-MovieWebService.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = MovieWebService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = agodatest.MovieWebService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MovieWebService/Supporting Files/Movie-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieWebService/Movie-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1023,11 +1024,12 @@
 			baseConfigurationReference = 611BAE68F7CDC543F4FEBA97 /* Pods-MovieWebService.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = MovieWebService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = agodatest.MovieWebService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MovieWebService/Supporting Files/Movie-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MovieWebService/Movie-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
