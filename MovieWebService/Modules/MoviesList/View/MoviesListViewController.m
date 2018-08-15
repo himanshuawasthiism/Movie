@@ -34,7 +34,7 @@
 #pragma mark - MoviesListViewInput
 
 - (void)setupInitialState {
-    self.navigationItem.title = @"RootViewController";
+    self.navigationItem.title = @"Root View Controller";
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
