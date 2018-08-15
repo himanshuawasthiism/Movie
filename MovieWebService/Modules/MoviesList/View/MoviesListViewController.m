@@ -29,7 +29,6 @@
     [appDelegate getFilmWithCallback:^(Film *film) {
         [self.output setData:film];
     }];
-
 }
 
 #pragma mark - MoviesListViewInput

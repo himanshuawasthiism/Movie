@@ -26,10 +26,10 @@ class DetailsViewController: UIViewController, DetailsViewInput, TappableLabelDe
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewIsReady()
+        setupBackButton()
         view = UIView()
         view.backgroundColor = .white
-        navigationController?.navigationBar.topItem?.title = "Back"
-
+       
         directorName = UILabel()
         view.addSubview(directorName)
         directorName.frame = CGRect(x: 20, y: 100, width: 200, height: 30)
@@ -76,6 +76,12 @@ class DetailsViewController: UIViewController, DetailsViewInput, TappableLabelDe
             actorScreenNameValue.text = actor.screenName
         }
 
+    }
+    
+    func setupBackButton() {
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
 
 
