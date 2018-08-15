@@ -28,6 +28,7 @@ class DetailsViewController: UIViewController, DetailsViewInput, TappableLabelDe
         output.viewIsReady()
         view = UIView()
         view.backgroundColor = .white
+        navigationController?.navigationBar.topItem?.title = "Back"
 
         directorName = UILabel()
         view.addSubview(directorName)
