@@ -42,9 +42,10 @@
     }
 }
 
-- (void)setNominated:(BOOL)nominate;
-{
-    nominated = &nominate;
+- (void)setNominated:(BOOL)nominate {
+    if (nominate != _nominated) {
+        _nominated = nominate;
+    }
 }
 
 @end

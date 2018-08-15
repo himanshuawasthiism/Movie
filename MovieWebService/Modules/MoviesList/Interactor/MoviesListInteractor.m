@@ -51,8 +51,6 @@
     CellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"CellTableViewCell" owner:self options:nil] firstObject];
-        // cell = self.movieCell;
-        //self.movieCell = nil;
     }
     Film *film = [films objectAtIndex:indexPath.row];
     cell.name.text = film.name;
@@ -68,12 +66,16 @@
     switch (film.filmRating) {
         case G:
             filmRatingText = @"G";
+            break;
         case PG:
             filmRatingText = @"PG";
+            break;
         case PG13:
             filmRatingText = @"PG13";
+            break;
         case R:
             filmRatingText = @"R";
+            break;
         default:
             break;
     }
