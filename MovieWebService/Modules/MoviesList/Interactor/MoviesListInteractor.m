@@ -51,17 +51,16 @@
     CellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"CellTableViewCell" owner:self options:nil] firstObject];
-        //cell = self.movieCell;
+        // cell = self.movieCell;
         //self.movieCell = nil;
     }
     Film *film = [films objectAtIndex:indexPath.row];
     cell.name.text = film.name;
 
-    NSCalendar* cal = [NSCalendar new];
     NSString* dateText;
-    NSDateFormatter *f = [[NSDateFormatter alloc] init];
-    [f setCalendar:cal];
-    dateText = [f stringFromDate:film.releaseDate];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MMM dd, yyyy"];
+    dateText = [dateFormat stringFromDate:film.releaseDate];
 
     cell.date.text = dateText;
 
@@ -79,7 +78,7 @@
             break;
     }
     cell.filmRating.text = filmRatingText;
-    cell.rating.text = [[NSNumber numberWithInteger:film.rating] stringValue];
+    cell.rating.text = [[NSNumber numberWithDouble:film.rating] stringValue];
 
     return cell;
 }
@@ -88,8 +87,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     Film *film = [films objectAtIndex:indexPath.row];
-    DetailsModuleBuilder *builder = [DetailsModuleBuilder new];
-    [appDelegate.navigationController pushViewController:[builder buildWith:film] animated:YES];
+    DetailsModuleBuilder *builder = [[DetailsModuleBuilder alloc] init];
+    [appDelegate.navigationController pushViewController:[builder buildWith:film.director] animated:YES];
 }
 
 @end
