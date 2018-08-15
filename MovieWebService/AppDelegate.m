@@ -29,7 +29,7 @@
 }
 
 - (void)getFilmWithCallback:(void (^)(Film *film))callback {
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0), ^{
         NSDictionary *data = @{
                                @"filmRating" : @3,
                                @"languages": @[
@@ -60,7 +60,9 @@
         Film* film = [[Film alloc] initWithData:data];
         
         data = nil;
-        callback(film);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(film);
+        });
     });
 }
 
