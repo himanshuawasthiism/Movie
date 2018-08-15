@@ -87,8 +87,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     Film *film = [films objectAtIndex:indexPath.row];
-    DetailsModuleBuilder *builder = [[DetailsModuleBuilder alloc] init];
-    [appDelegate.navigationController pushViewController:[builder buildWith:film.director] animated:YES];
+    [appDelegate.navigationController pushViewController:[DetailsModuleBuilder buildWith:film.director] animated:YES];
 }
 
 @end

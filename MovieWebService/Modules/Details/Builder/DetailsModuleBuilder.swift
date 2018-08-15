@@ -10,10 +10,10 @@ import UIKit
 
 @objc class DetailsModuleBuilder: NSObject {
 
-    func build(with data: Any) -> UIViewController {
+    class func build(with data: Director) -> UIViewController {
 
         let viewController = DetailsViewController()
-
+        viewController.director = data
         let router = DetailsRouter()
         router.viewController = viewController
 
@@ -26,7 +26,7 @@ import UIKit
 
         presenter.interactor = interactor
         viewController.output = presenter
-        viewController.director = data as? Director
+    
 
         return viewController
     }

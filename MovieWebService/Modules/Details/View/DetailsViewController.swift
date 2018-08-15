@@ -11,13 +11,15 @@ import UIKit
 class DetailsViewController: UIViewController, DetailsViewInput, TappableLabelDelegate {
 
     var output: DetailsViewOutput!
-    public var director: Director!
+    public var director: Director?
 
     var directorName: UILabel!
     var directorNameValue: UILabel!
     var tapToShowMore: TappableLabel!
     var actorName: UILabel!
+    var actorNameValue: UILabel!
     var actorScreenName: UILabel!
+    var actorScreenNameValue: UILabel!
 
     // MARK: Life cycle
     
@@ -35,7 +37,7 @@ class DetailsViewController: UIViewController, DetailsViewInput, TappableLabelDe
         directorNameValue = UILabel()
         view.addSubview(directorNameValue)
         directorNameValue.frame = CGRect(x: 20, y: 150, width: 200, height: 30)
-        directorNameValue.text = director.name;
+        directorNameValue.text = director?.name;
 
         tapToShowMore = TappableLabel()
         view.addSubview(tapToShowMore)
@@ -45,17 +47,33 @@ class DetailsViewController: UIViewController, DetailsViewInput, TappableLabelDe
 
         actorName = UILabel()
         view.addSubview(actorName)
-        actorName.frame = CGRect(x: 20, y: 240, width: 200, height: 30)
+        actorName.frame = CGRect(x: 20, y: 250, width: 200, height: 30)
+        actorName.text = "Actor Name"
+
+        
+        actorNameValue = UILabel()
+        view.addSubview(actorNameValue)
+        actorNameValue.frame = CGRect(x: 20, y: 300, width: 200, height: 30)
 
         actorScreenName = UILabel()
         view.addSubview(actorScreenName)
-        actorScreenName.frame = CGRect(x: 20, y: 270, width: 200, height: 30)
+        actorScreenName.frame = CGRect(x: 20, y: 350, width: 200, height: 30)
+        actorScreenName.text = "Actor Screen Name"
+
+        
+        actorScreenNameValue = UILabel()
+        view.addSubview(actorScreenNameValue)
+        actorScreenNameValue.frame = CGRect(x: 20, y: 400, width: 200, height: 30)
+        
         actorName.isHidden = true
         actorScreenName.isHidden = true
-
-        let actor: Actor = director.film.cast?[0] as! Actor
-        actorName.text = director.name;
-        actorScreenName.text = actor.screenName;
+        actorNameValue.isHidden = true
+        actorScreenNameValue.isHidden = true
+        
+        if let actor = director?.film?.cast.first {
+            actorNameValue.text = actor.name
+            actorScreenNameValue.text = actor.screenName
+        }
 
     }
 
@@ -65,6 +83,9 @@ class DetailsViewController: UIViewController, DetailsViewInput, TappableLabelDe
     func didReceiveTouch() {
         actorName.isHidden = false
         actorScreenName.isHidden = false
+        tapToShowMore.isHidden = true
+        actorNameValue.isHidden = false
+        actorScreenNameValue.isHidden = false
     }
 
 }
